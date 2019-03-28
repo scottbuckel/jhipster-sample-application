@@ -1,0 +1,16 @@
+entity Source {
+	name String required minlength(3),
+	handle String required minlength(2)
+}
+
+entity SourceFields {
+	title String required,
+	content TextBlob required,
+	date Instant required
+}
+
+relationship ManyToOne {
+	SourceFields to Source
+}
+
+
