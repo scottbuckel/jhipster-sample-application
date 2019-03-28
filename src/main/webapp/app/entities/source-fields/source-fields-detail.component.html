@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sourceFields">
+            <h2><span>Source Fields</span> {{sourceFields.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{sourceFields.title}}</span>
+                </dd>
+                <dt><span>Content</span></dt>
+                <dd>
+                    <span>{{sourceFields.content}}</span>
+                </dd>
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{sourceFields.date}}</span>
+                </dd>
+                <dt><span>Source</span></dt>
+                <dd>
+                    <div *ngIf="sourceFields.source">
+                        <a [routerLink]="['/source', sourceFields.source?.id, 'view']">{{sourceFields.source?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/source-fields', sourceFields.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
